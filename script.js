@@ -8,6 +8,13 @@ var fExcelSheet       = new ActiveXObject("Excel.Sheet");
 var sExcelSaveLocation    = "C:\\Users\\JKrizenesky\\Documents\\Aptana Studio 3 Workspace\\skycaster";
 //fExcelApplication.Visible = true;  -- opens the Excel window.
 
+var xmlHTTP = new XMLHttpRequest();
+//In Internet Explorer, you create the object using new ActiveXObject("Msxml2.XMLHTTP") 
+//or new ActiveXObject("Microsoft.XMLHTTP") depending on the version of MSXML installed
+
+
+
+
 
 /*
 //filepath directory  C:\Users\JKrizenesky\Documents\Aptana Studio 3 Workspace\skycaster
@@ -80,6 +87,13 @@ var myFunction = function(){
 
 
 
+
+
+var XMLHTTPGet = function(){
+	
+	xmlHTTP.open("GET", "C:\\test.txt", true);
+	
+};
 
 /*
 	    <button type="button" onclick="getData()">GetTrafficData</button>
