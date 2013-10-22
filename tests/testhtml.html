@@ -5,11 +5,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
         <script type="text/javascript" src="testjs.js"></script>
         <h1>test document</h1>
+        <p>login: isotropicnoc</p>
+        <p>password: T8Chgr0up</p>
     </head>
 
 
 
-    <body>
+    <body onload="func1();">
 	
 		<button type="button" onclick="getPage()">getPage</button>
 		<button type="button" onclick="postPage()">postPage</button>
@@ -18,11 +20,29 @@
 	    <button type="button" onclick="fillTextArea()">fillTextArea</button>
 	    <br></br>
 	    <button type="button" onclick="filterDateForm()">filterDateForm</button>
+	    <button type="button" onclick="getExcelData()">getExcelData</button>
 	    <br></br>
 	    <textarea ID="textArea" rows="50" cols="80"></textarea>
     
     
     
+    
+        <br></br>
+  
+        <form method="post" action="mailto:oldman@chasm.bridge">
+        	
+        	<p>What is your name? </p> <input ID="name" type="text" size="30" maxlength="30" 
+        	                                  name="myName"/>
+        	<button type="button" onclick="getFormData()">Get Form Data</button>
+        	
+        	<p>Start date: </p>    <label ID="startDate" type="text">test1</label>
+        	<p>End Date:   </p>    <label ID="endDate" type="text">test2</label>
+        	<p>Serial:     </p>    <label ID="serial" type="text">test3</label>
+        	  	
+      
+        </form>  
+        	
+        	
     </body>
 
 
@@ -30,3 +50,7 @@
 
 
 </html>
+
+<!-- If you forget to specify an encoding format for the data, 
+	it may arrive in machine readable format instead of people readable format.
+	 To encode data for e-mail use the enctype attribute with enctype="text/plain". -->

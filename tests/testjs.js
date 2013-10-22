@@ -16,6 +16,19 @@
 */
 
 
+var fExcelApplication = new ActiveXObject("Excel.Application");
+var fExcelSheet       = new ActiveXObject("Excel.Sheet");
+var sExcelSaveLocation    = "C:\\Users\\JKrizenesky\\Documents\\Aptana Studio 3 Workspace\\skycaster";
+//fExcelApplication.Visible = true;  -- opens the Excel window.
+
+var xmlHTTP = new XMLHttpRequest();
+//In Internet Explorer, you create the object using new ActiveXObject("Msxml2.XMLHTTP") 
+//or new ActiveXObject("Microsoft.XMLHTTP") depending on the version of MSXML installed
+
+
+
+
+
 //  year-month-date    format
 //  getMonth is zero-base for some reason... so add +1.
 var oDate = new Date();
@@ -46,7 +59,7 @@ var sNocSiteURL = "http://10.7.4.70/nocsite/";
 var sResponseTextXML = "";
 var sStartDate       = "";
 var sEndDate         = "";
-  
+var sName = "";  
 
 
 
@@ -58,15 +71,23 @@ var sEndDate         = "";
 function makeStartDate(){
 	//getMonth is zero-base for some reason... leave
 	
-    	
+
+	sStartDate =  oDate.getFullYear().toString();
+	
+	sStartDate += "-" + oDate.getMonth().toString();
+	//grabe the biling date from the excel sheet next
+	sStartDate += "-" + oDate.getDate().toString();
+	
 	
 }
 
 function makeEndDate(){
 	
-	//getMonth is zero-base for some reason... so add +1.
 	sEndDate =  oDate.getFullYear().toString();
+	
+	//getMonth is zero-base for some reason... so add +1.
 	sEndDate += "-" + (oDate.getMonth() + 1).toString();
+	
 	//grabe the biling date from the excel sheet next
 	sEndDate += "-" + (oDate.getDate() - 1).toString();
 	
@@ -107,7 +128,7 @@ function filterDateForm(){
 	
 	alert(sResponseTextXML);
 	makeStartDate();
-   
+    makeEndDate();
 
 	/*
 	if(sStartDate != "")
@@ -119,9 +140,32 @@ function filterDateForm(){
 	
 	/*sStartDate = sResponseTextXML.getElementsByID("startdate").value;*/
 	
-	document.getElementById("textArea").value = "abc " + sStartDate + " xyz";
+	document.getElementById("textArea").value = "Start Date: " + sStartDate + '\n' +
+	                                            "End Date: "   + sEndDate;
 	
 }
+
+
+function getFormData(){
+	
+	sName = document.getElementById("name").value;
+	alert(sName);
+	
+	document.getElementById("startDate").value = sStartDate;
+	alert(document.getElementById("startDate").value);
+}
+
+
+
+function func1(){
+	
+	alert("this is the first");
+	makeStartDate();
+	document.getElementById("startDate").innerHTML = sStartDate;
+}
+
+window.onload = func1;
+
 
 
 
